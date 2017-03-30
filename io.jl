@@ -1,4 +1,4 @@
-function trainio()
+function trainio(inout::Int64)
   data_array=[]
   path=chomp(readline(STDIN))
   global f
@@ -17,6 +17,9 @@ function trainio()
     nos=map(nos) do x
       x=parse(Int,x)
     end
+    if inout==1
+      push!(nos,1)  #bias
+    end
     append!(data_array,nos)
   end
   data_array=reshape(data_array,div(length(data_array),length(lines)),length(lines))
@@ -29,8 +32,8 @@ function hideio(hidden)
   i=1
   while(true)
     print("How many elements in hidden layer $i? (enter zero to stop): ")
-    push!(hidden,parse(Int,readline(STDIN)))
-    if(hidden[end]<=0)
+    push!(hidden,parse(Int,readline(STDIN))+1)
+    if(hidden[end]<=1)
       println(hidden)
       pop!(hidden)
       println(hidden)
