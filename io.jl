@@ -34,9 +34,9 @@ function hideio(hidden)
     print("How many elements in hidden layer $i? (enter zero to stop): ")
     push!(hidden,parse(Int,readline(STDIN))+1)
     if(hidden[end]<=1)
-      println(hidden)
+      #println(hidden)
       pop!(hidden)
-      println(hidden)
+      #println(hidden)
       break
     end
     i+=1
