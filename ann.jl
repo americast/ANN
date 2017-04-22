@@ -31,8 +31,10 @@ print("How many iterations?: ")
 n=parse(Int,readline(STDIN))
 print("Rate?: ")
 eta=parse(Float64,readline(STDIN))
+print("Momentum rate?: ")
+alpha=parse(Float64,readline(STDIN))
 for i in (1:n)
-  Delta=[]
+  oldDelta=[]; Delta=[]
   for k in (1:length(hidden)+1)
     push!(Delta,[])
   end
@@ -53,7 +55,16 @@ for i in (1:n)
   end
   
   for k in (1:length(theta))
-    theta[k]-=(eta/m)*Delta[k] #Add regularisation
+    try
+      oldDelta[k]=Delta[k]
+    catch
+      push!(oldDelta,Delta[k])
+    end
+    try  #Add regularisation
+      theta[k]-=(eta/m)*Delta[k] - (alpha*oldDelta[k])
+    catch
+      theta[k]-=(eta/m)*Delta[k]
+    end
   end
 end
 

@@ -2,7 +2,7 @@
 WORK IN PROGRESS
 -----
 
-Julia implementation of Artificial Neural Network using SGD and ADAM optimisers.  
+Julia implementation of Artificial Neural Network using SGD and Momentum optimisers.  
 
 Sample run:  
 `julia ann.jl < try`  
