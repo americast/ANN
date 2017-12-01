@@ -1,8 +1,6 @@
------
-WORK IN PROGRESS
------
+# A Julia implementation of Artificial Neural Network.
 
-Julia implementation of Artificial Neural Network using SGD and Momentum optimisers.  
+[![Gitter chat](https://badges.gitter.im/ANN-julia/Lobby.png)](https://gitter.im/ANN-julia/Lobby)
 
 Sample run:  
 `julia ann.jl < try`  
